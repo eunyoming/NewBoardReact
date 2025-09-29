@@ -1,22 +1,25 @@
 import {useState} from "react";
-import axios from "axios";
+import {login} from "./domains/auth/api/authAPI";
+import {useNavigate} from "react-router-dom";
 
 const MainPage = () => {
+    const navigate = useNavigate();
 
-    const [login, setLogin] = useState({});
+    const [loginInfo, setLoginInfo] = useState({id: "", pw: ""});
     const handleChange = (e) => {
         const {name, value} = e.target
-        setLogin(prev => ({...prev, [name] : value}));
+        setLoginInfo(prev => ({...prev, [name]: value}));
     }
+
     const handleCheck = () => {
-        axios.post("http://10.5.5.7:80/api/auth/login", login).then(resp => {
+        login(loginInfo).then(resp => {
             console.log(resp);
-            if(resp.data){
+            if (resp.data) {
                 alert("로그인 성공");
-            }else {
+            } else {
                 alert("로그인 실패");
             }
-            setLogin({id:"", pw:""});
+            setLoginInfo({id: "", pw: ""});
         });
     }
 
@@ -28,6 +31,7 @@ const MainPage = () => {
                 placeholder="input ID"
                 onChange={handleChange}
                 name="id"
+                value={loginInfo.id}
             />
             <br/>
             <input
@@ -35,9 +39,11 @@ const MainPage = () => {
                 placeholder="input PW"
                 onChange={handleChange}
                 name="pw"
+                value={loginInfo.pw}
             />
             <br/>
             <button onClick={handleCheck}>로그인</button>
+            <button onClick={() => navigate("/signup")}>회원가입</button>
         </div>
     );
 }

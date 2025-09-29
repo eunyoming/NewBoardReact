@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const GetDaumPostCode = ({ onComplete }) => {
+const OpenDaumPostCode = ({ onComplete, onClose }) => {
     useEffect(() => {
         const script = document.createElement("script");
         script.src = "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
@@ -9,6 +9,9 @@ const GetDaumPostCode = ({ onComplete }) => {
             new window.daum.Postcode({
                 oncomplete: function (data) {
                     onComplete(data);
+                },
+                onclose: () => {
+                    onClose();
                 }
             }).open();
         };
@@ -18,4 +21,4 @@ const GetDaumPostCode = ({ onComplete }) => {
     return null; // 팝업만 띄우고 컴포넌트 자체는 렌더링하지 않음
 };
 
-export default GetDaumPostCode;
+export default OpenDaumPostCode;
