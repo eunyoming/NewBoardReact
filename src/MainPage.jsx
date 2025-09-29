@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {login} from "./domains/auth/api/authAPI";
+import {login} from "./domains/auth/api/AuthAPI";
 import {useNavigate} from "react-router-dom";
 
 const MainPage = () => {

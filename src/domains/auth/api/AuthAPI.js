@@ -1,4 +1,4 @@
-import apiRoutes from "../../../commons/utils/apiRoutes";
+import apiRoutes from "../../../commons/utils/ApiRoutes";
 import axios from "axios";
 
 export function login(loginInfo) {
