@@ -23,7 +23,7 @@ const apiRoutes = {
          * response: true(중복)/false(중복아님)
          */
         checkMemberId: (memberId) => ({
-            url: `${BASE_URL}/users/checkDuplicateId?id=${memberId}`,
+            url: `${BASE_URL}/member/checkDuplicateId?id=${memberId}`,
             method: "GET"
         }),
     },
