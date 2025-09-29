@@ -35,7 +35,7 @@ const MainPage = () => {
             />
             <br/>
             <input
-                type="text"
+                type="password"
                 placeholder="input PW"
                 onChange={handleChange}
                 name="pw"
