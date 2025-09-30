@@ -1,8 +1,9 @@
-import apiRoutes from "../../../commons/utils/ApiRoutes";
+import apiRoutes from "../../../commons/utils/apiRoutes";
 import axios from "axios";
 
 export function login(loginInfo) {
     const {url, method} = apiRoutes.auth.login;
+    axios.defaults.withCredentials = true;
     return axios({url, method, data: loginInfo});
 }
 
