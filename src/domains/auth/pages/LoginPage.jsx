@@ -2,9 +2,12 @@ import {useState} from "react";
 import {login} from "../api/authAPI";
 import {useNavigate} from "react-router-dom";
 import api from "../../../commons/utils/apiFilter";
+import useMemberStore from "../../../commons/stores/memberStore";
 
 const LoginPage = () => {
     const navigate = useNavigate();
+
+    const setMember = useMemberStore((state) => state.setMember);
 
     const [loginInfo, setLoginInfo] = useState({id: "", pw: ""});
     const handleChange = (e) => {
@@ -17,6 +20,7 @@ const LoginPage = () => {
             console.log(resp);
             if (resp.data) {
                 alert("로그인 성공");
+                setMember({id: loginInfo.id});
             } else {
                 alert("로그인 실패");
             }

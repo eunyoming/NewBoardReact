@@ -1,6 +1,6 @@
 import {create} from "zustand/react";
 
-const UseMemberStore = create(set => ({
+const useMemberStore = create(set => ({
     member: {
         id: "",
         name: ""
@@ -10,4 +10,4 @@ const UseMemberStore = create(set => ({
     clearMember: () => set({ member: {id:"", name:""}, isLoggedIn: false })
 }));
 
-export default UseMemberStore;
+export default useMemberStore;

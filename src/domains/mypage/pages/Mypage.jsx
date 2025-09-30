@@ -1,4 +1,4 @@
-import UseMemberStore from "../../../commons/stores/MemberStore";
+import UseMemberStore from "../../../commons/stores/memberStore";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
