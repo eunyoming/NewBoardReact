@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export default function api() {
-    return axios.create({withCredentials: true});
+export default function api(request) {
+    return axios({...request, withCredentials: true});
 }
