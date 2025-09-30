@@ -14,9 +14,10 @@ function App() {
     useEffect(() => {
         const loginId = sessionStorage.getItem("loginId");
 
-        if(loginId) {
+        if(loginId !== null) {
             setMember({id: loginId});
         } else {
+            console.log("test");
             setMember({id: ""});
         }
     }, []);

@@ -1,6 +1,6 @@
 import apiRoutes from "../../../commons/utils/apiRoutes";
-import axios from "axios";
+import api from "../../../commons/utils/apiInterceptor";
 
 export function logout() {
-    return axios(apiRoutes.auth.logout);
+    return api(apiRoutes.auth.logout);
 }

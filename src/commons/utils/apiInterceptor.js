@@ -1,8 +1,10 @@
 import axios from "axios";
 
-const BASE_URL = "http://10.5.5.8/api";
+const BASE_URL = "http://10.5.5.8:80/api";
 
-axios.interceptors.request.use(
+const api = axios.create();
+
+api.interceptors.request.use(
     (config) => {
         config.baseURL = BASE_URL;
         config.withCredentials = true;
@@ -13,4 +15,4 @@ axios.interceptors.request.use(
     }
 )
 
-export default axios;
+export default api;
