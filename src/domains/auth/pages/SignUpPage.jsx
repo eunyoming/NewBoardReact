@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {checkMemberId, register} from "../api/authAPI";
+import {checkMemberId, register} from "../api/AuthAPI";
 import {useNavigate} from "react-router-dom";
 import GetPostCode from "../components/GetPostCode";
 import SignUpInputForm from "../components/SignUpInputForm";

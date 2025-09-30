@@ -51,23 +51,23 @@ const apiRoutes = {
 
         /**
          * 사용자 정보 수정 API<br>
-         * PATCH /api/member/{memberId}<br>
+         * PUT /api/member/{memberId}<br>
          * body: {MemberDTO}
          */
-        patch:(memberId) => ({
+        put:(memberId) => ({
             url: `${BASE_URL}/member/${memberId}`,
-            method: "PATCH"
+            method: "PUT"
         }),
 
         /**
          * 비밀번호 변경 API<br>
-         * PATCH /api/member/password<br>
+         * PUT /api/member/password<br>
          * body: {MemberDTO}<br>
          * response: {errorMessage: message}
          */
         passwordChange: (memberId) => ({
             url: `${BASE_URL}/member/password/${memberId}`,
-            method: "PATCH"
+            method: "PUT"
         }),
     },
 };
