@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {meAPI} from "../api/MypageAPI";
+import {meAPI} from "../api/mypageAPI";
 
 const Mypage = () => {
     // 기본 정보 외에 자세한 정보 가져오기
@@ -9,8 +9,6 @@ const Mypage = () => {
 
     useEffect(() => {
         meAPI().then(resp => {
-            console.log(resp.data);
-            console.log("test");
             setDetailMember(resp.data);
         });
     }, []);
