@@ -8,7 +8,7 @@ api.interceptors.request.use(
     (config) => {
         config.baseURL = BASE_URL;
         config.withCredentials = true;
-        return config
+        return config;
     },
     (error) => {
         return Promise.reject(error);

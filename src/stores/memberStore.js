@@ -2,8 +2,7 @@ import {create} from "zustand/react";
 
 const useMemberStore = create(set => ({
     member: {
-        id: "",
-        name: ""
+        id: ""
     },
     login: (info) => {
         if (info.id !== "") {
@@ -13,7 +12,7 @@ const useMemberStore = create(set => ({
     },
     logout: () => {
         sessionStorage.removeItem("loginId");
-        set({member: {id: "", name: ""}});
+        set({member: {id: ""}});
     },
 }));
 

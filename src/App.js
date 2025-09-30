@@ -6,21 +6,22 @@ import useMemberStore from "./stores/memberStore";
 import Home from "./domains/home/pages/Home";
 import Nav from "./commons/components/Nav";
 import {useEffect} from "react";
+import Mypage from "./domains/mypage/pages/Mypage";
 
 function App() {
     const memberInfo = useMemberStore((state) => state.member);
-    const setMember = useMemberStore((state) => state.login);
+    const login = useMemberStore((state) => state.login);
 
     useEffect(() => {
         const loginId = sessionStorage.getItem("loginId");
 
         if(loginId !== null) {
-            setMember({id: loginId});
+            login({id: loginId});
         } else {
             console.log("test");
-            setMember({id: ""});
+            login({id: ""});
         }
-    }, []);
+    }, [login]);
 
     return (
         <Router>
@@ -30,6 +31,7 @@ function App() {
                         <Nav/>
                         <Routes>
                             <Route path="/" element={<Home/>}/>
+                            <Route path="/mypage" element={<Mypage/>}/>
                         </Routes>
                     </>
                     :
