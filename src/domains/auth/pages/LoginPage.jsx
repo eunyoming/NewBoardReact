@@ -18,11 +18,13 @@ const LoginPage = () => {
         login(loginInfo).then(resp => {
             console.log(resp);
             if (resp.data) {
-                alert("로그인 성공");
+                // 로그인 ID 저장 - 세션 + 스토어
+                sessionStorage.setItem("loginId", loginInfo.id);
                 setMember({id: loginInfo.id});
             } else {
                 alert("로그인 실패");
             }
+            // 로그인 입력창 초기화
             setLoginInfo({id: "", pw: ""});
         });
     }

@@ -1,4 +1,3 @@
-import Nav from "../../../commons/components/Nav";
 import useMemberStore from "../../../commons/stores/memberStore";
 
 export default function Home() {

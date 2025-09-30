@@ -13,10 +13,12 @@ function App() {
         <Router>
             <div className="App">
                 {memberInfo.id !== "" ?
-                    <Routes>
+                    <>
                         <Nav/>
-                        <Route path="/" element={<Home/>}/>
-                    </Routes>
+                        <Routes>
+                            <Route path="/" element={<Home/>}/>
+                        </Routes>
+                    </>
                     :
                     <Routes>
                         <Route path="/" element={<LoginPage/>}/>
