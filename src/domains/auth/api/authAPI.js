@@ -2,16 +2,13 @@ import apiRoutes from "../../../commons/utils/apiRoutes";
 import api from "../../../commons/utils/apiFilter";
 
 export function login(loginInfo) {
-    const {url, method} = apiRoutes.auth.login;
-    return api({url, method, data: loginInfo});
+    return api({...apiRoutes.auth.login, data: loginInfo});
 }
 
 export function register(registerInfo) {
-    const {url, method} = apiRoutes.member.register;
-    return api({url, method, data: registerInfo});
+    return api({...apiRoutes.member.register, data: registerInfo});
 }
 
 export function checkMemberId(memberId) {
-    const {url, method} = apiRoutes.auth.checkMemberId(memberId);
-    return api({url, method});
+    return api(apiRoutes.auth.checkMemberId(memberId));
 }
