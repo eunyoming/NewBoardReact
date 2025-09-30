@@ -9,7 +9,7 @@ import {useEffect} from "react";
 
 function App() {
     const memberInfo = useMemberStore((state) => state.member);
-    const setMember = useMemberStore((state) => state.setMember);
+    const setMember = useMemberStore((state) => state.login);
 
     useEffect(() => {
         const loginId = sessionStorage.getItem("loginId");

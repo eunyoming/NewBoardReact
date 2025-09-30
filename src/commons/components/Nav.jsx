@@ -1,13 +1,13 @@
 import {useNavigate} from "react-router-dom";
-import {logout} from "../../domains/home/api/homeAPI";
+import {logoutAPI} from "../../domains/home/api/homeAPI";
 import useMemberStore from "../../stores/memberStore";
 
 export default function Nav() {
     const navigate = useNavigate();
-    const clearMember = useMemberStore((state) => state.clearMember);
+    const clearMember = useMemberStore((state) => state.logout);
 
     const handleLogout = () => {
-        logout().then(clearMember);
+        logoutAPI().then(clearMember);
     }
 
     return (

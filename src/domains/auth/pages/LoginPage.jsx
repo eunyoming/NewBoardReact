@@ -6,7 +6,7 @@ import useMemberStore from "../../../stores/memberStore";
 const LoginPage = () => {
     const navigate = useNavigate();
 
-    const setMember = useMemberStore((state) => state.setMember);
+    const setMember = useMemberStore((state) => state.login);
 
     const [loginInfo, setLoginInfo] = useState({id: "", pw: ""});
 

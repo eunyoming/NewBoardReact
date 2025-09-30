@@ -5,13 +5,13 @@ const useMemberStore = create(set => ({
         id: "",
         name: ""
     },
-    setMember: (info) => {
+    login: (info) => {
         if (info.id !== "") {
             sessionStorage.setItem("loginId", info.id);
         }
         set({member: info});
     },
-    clearMember: () => {
+    logout: () => {
         sessionStorage.removeItem("loginId");
         set({member: {id: "", name: ""}});
     },
