@@ -2,6 +2,7 @@ import {useState} from "react";
 import {login} from "../api/authAPI";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import api from "../../../commons/utils/apiFilter";
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -45,7 +46,7 @@ const LoginPage = () => {
             <br/>
             <button onClick={handleCheck}>로그인</button>
             <button onClick={() => navigate("/signup")}>회원가입</button>
-            <button onClick={() => axios.get("http://10.5.5.7:80/api/auth/test")}>테스트</button>
+            <button onClick={() => api({url:"http://10.5.5.7:80/api/auth/test", method:"GET"})}>테스트</button>
         </div>
     );
 }
