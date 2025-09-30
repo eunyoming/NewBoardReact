@@ -1,14 +1,14 @@
 import apiRoutes from "../../../commons/utils/apiRoutes";
-import api from "../../../commons/utils/apiFilter";
+import axios from "axios";
 
-export function login(loginInfo) {
-    return api({...apiRoutes.auth.login, data: loginInfo});
+export function loginAPI(loginInfo) {
+    return axios({...apiRoutes.auth.login, data: loginInfo});
 }
 
-export function register(registerInfo) {
-    return api({...apiRoutes.member.register, data: registerInfo});
+export function registerAPI(registerInfo) {
+    return axios({...apiRoutes.member.register, data: registerInfo});
 }
 
-export function checkMemberId(memberId) {
-    return api(apiRoutes.auth.checkMemberId(memberId));
+export function checkMemberIdAPI(memberId) {
+    return axios(apiRoutes.auth.checkMemberId(memberId));
 }

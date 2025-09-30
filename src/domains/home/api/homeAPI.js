@@ -1,6 +1,6 @@
-import api from "../../../commons/utils/apiFilter";
 import apiRoutes from "../../../commons/utils/apiRoutes";
+import axios from "axios";
 
 export function logout() {
-    return api(apiRoutes.auth.logout);
+    return axios(apiRoutes.auth.logout);
 }

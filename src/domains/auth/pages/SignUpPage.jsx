@@ -1,9 +1,9 @@
 import {useState} from "react";
-import {checkMemberId, register} from "../api/authAPI";
+import {checkMemberIdAPI, registerAPI} from "../api/authAPI";
 import {useNavigate} from "react-router-dom";
 import GetPostCode from "../components/GetPostCode";
 import SignUpInputForm from "../components/SignUpInputForm";
-import useSignUpStore from "../store/signUpStore";
+import useSignUpStore from "../../../stores/signUpStore";
 
 const SignUpPage = () => {
     const navigate = useNavigate();
@@ -15,13 +15,13 @@ const SignUpPage = () => {
     // 회원가입 버튼 클릭시
     const handleJoin = () => {
         if (checkDuplicateId) {
-            register(signUpInfo).then(() => navigate("/"));
+            registerAPI(signUpInfo).then(() => navigate("/"));
         }
     }
 
     // 중복 확인 버튼 클릭시
     const handleCheckDuplicate = () => {
-        checkMemberId(signUpInfo.id).then(res => setCheckDuplicateId(res.data));
+        checkMemberIdAPI(signUpInfo.id).then(res => setCheckDuplicateId(res.data));
     }
 
     return (

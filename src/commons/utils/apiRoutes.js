@@ -1,5 +1,3 @@
-const BASE_URL = "http://10.5.5.8/api";
-
 const apiRoutes = {
     auth: {
         /**
@@ -8,13 +6,13 @@ const apiRoutes = {
          * body: { userId, passwd }<br>
          * response: {MemberDTO}
          */
-        login: {url: `${BASE_URL}/auth/login`, method: "POST"},
+        login: {url: `/auth/login`, method: "POST"},
 
         /**
          * 로그아웃 API<br>
          * GET /api/auth
          */
-        logout: {url: `${BASE_URL}/auth/logout`, method: "GET"},
+        logout: {url: `/auth/logout`, method: "GET"},
 
         /**
          * 아이디 중복 확인 API<br>
@@ -23,7 +21,7 @@ const apiRoutes = {
          * response: true(중복)/false(중복아님)
          */
         checkMemberId: (memberId) => ({
-            url: `${BASE_URL}/member/checkDuplicateId?id=${memberId}`,
+            url: `/member/checkDuplicateId?id=${memberId}`,
             method: "GET"
         }),
     },
@@ -33,21 +31,21 @@ const apiRoutes = {
          * POST /api/user<br>
          * body: {MemberDTO}
          */
-        register: {url: `${BASE_URL}/member`, method: "POST"},
+        register: {url: `/member`, method: "POST"},
 
         /**
          * 회원탈퇴 API<br>
          * PATCH /api/users<br>
          * body: {MemberDTO}
          */
-        delete: {url: `${BASE_URL}/member`, method: "DELETE"},
+        delete: {url: `/member`, method: "DELETE"},
 
         /**
          * 현재 사용자 정보 조회 API<br>
          * GET /api/member/me<br>
          * response: {MemberDTO}
          */
-        me: {url: `${BASE_URL}/member/me`, method: "GET"},
+        me: {url: `/member/me`, method: "GET"},
 
         /**
          * 사용자 정보 수정 API<br>
@@ -55,7 +53,7 @@ const apiRoutes = {
          * body: {MemberDTO}
          */
         put:(memberId) => ({
-            url: `${BASE_URL}/member/${memberId}`,
+            url: `/member/${memberId}`,
             method: "PUT"
         }),
 
@@ -66,7 +64,7 @@ const apiRoutes = {
          * response: {errorMessage: message}
          */
         passwordChange: (memberId) => ({
-            url: `${BASE_URL}/member/password/${memberId}`,
+            url: `/member/password/${memberId}`,
             method: "PUT"
         }),
     },

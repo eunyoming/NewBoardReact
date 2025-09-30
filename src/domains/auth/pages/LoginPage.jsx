@@ -1,7 +1,7 @@
 import {useState} from "react";
-import {login} from "../api/authAPI";
+import {loginAPI} from "../api/authAPI";
 import {useNavigate} from "react-router-dom";
-import useMemberStore from "../../../commons/stores/memberStore";
+import useMemberStore from "../../../stores/memberStore";
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -9,17 +9,16 @@ const LoginPage = () => {
     const setMember = useMemberStore((state) => state.setMember);
 
     const [loginInfo, setLoginInfo] = useState({id: "", pw: ""});
+
     const handleChange = (e) => {
         const {name, value} = e.target
         setLoginInfo(prev => ({...prev, [name]: value}));
     }
 
     const handleCheck = () => {
-        login(loginInfo).then(resp => {
-            console.log(resp);
+        loginAPI(loginInfo).then(resp => {
             if (resp.data) {
                 // 로그인 ID 저장 - 세션 + 스토어
-                sessionStorage.setItem("loginId", loginInfo.id);
                 setMember({id: loginInfo.id});
             } else {
                 alert("로그인 실패");

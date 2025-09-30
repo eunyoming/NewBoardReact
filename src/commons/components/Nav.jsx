@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import {logout} from "../../domains/home/api/homeAPI";
-import useMemberStore from "../stores/memberStore";
+import useMemberStore from "../../stores/memberStore";
 
 export default function Nav() {
     const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import useMemberStore from "../../../commons/stores/memberStore";
+import useMemberStore from "../../../stores/memberStore";
 
 export default function Home() {
     const memberInfo = useMemberStore((state) => state.member);

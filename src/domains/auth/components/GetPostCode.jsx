@@ -1,6 +1,6 @@
 import OpenDaumPostCode from "../../../commons/components/OpenDaumPostCode";
 import {useState} from "react";
-import useSignUpStore from "../store/signUpStore";
+import useSignUpStore from "../../../stores/signUpStore";
 
 export default function GetPostCode({form, setForm}) {
     const [showPost, setShowPost] = useState(false);
