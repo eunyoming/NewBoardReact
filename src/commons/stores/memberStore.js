@@ -5,9 +5,8 @@ const useMemberStore = create(set => ({
         id: "",
         name: ""
     },
-    isLoggedIn: false,
-    setMember: (info) => set({ member: info, isLoggedIn: true }),
-    clearMember: () => set({ member: {id:"", name:""}, isLoggedIn: false })
+    setMember: (info) => set({ member: info}),
+    clearMember: () => set({ member: {id:"", name:""}})
 }));
 
 export default useMemberStore;

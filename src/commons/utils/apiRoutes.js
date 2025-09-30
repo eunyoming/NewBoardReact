@@ -1,4 +1,4 @@
-const BASE_URL = "http://10.5.5.7/api";
+const BASE_URL = "http://10.5.5.8/api";
 
 const apiRoutes = {
     auth: {

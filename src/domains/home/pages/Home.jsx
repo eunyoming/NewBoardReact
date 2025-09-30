@@ -6,7 +6,6 @@ export default function Home() {
 
     return (
         <div>
-            <Nav/>
             {memberInfo.id}님 어서오세요!
         </div>
     );
