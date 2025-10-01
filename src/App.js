@@ -2,7 +2,7 @@ import './App.css';
 import LoginPage from "./domains/auth/pages/LoginPage";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import SignUpPage from "./domains/auth/pages/SignUpPage";
-import useMemberStore from "./stores/memberStore";
+import useMemberStore from "./stores/authStore";
 import Home from "./domains/home/pages/Home";
 import Nav from "./commons/components/Nav";
 import {useEffect} from "react";
@@ -32,12 +32,14 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home/>}/>
                             <Route path="/mypage" element={<Mypage/>}/>
+                            <Route path="*" element={<Home/>}/>
                         </Routes>
                     </>
                     :
                     <Routes>
                         <Route path="/" element={<LoginPage/>}/>
                         <Route path="/signup" element={<SignUpPage/>}/>
+                        <Route path="*" element={<LoginPage/>}/>
                     </Routes>
                 }
             </div>

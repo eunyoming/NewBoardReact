@@ -3,25 +3,25 @@ import {checkMemberIdAPI, registerAPI} from "../api/authAPI";
 import {useNavigate} from "react-router-dom";
 import GetPostCode from "../components/GetPostCode";
 import SignUpInputForm from "../components/SignUpInputForm";
-import useSignUpStore from "../../../stores/signUpStore";
+import useMemberStore from "../../../stores/memberStore";
 
 const SignUpPage = () => {
     const navigate = useNavigate();
 
     // ID 중복체크 상태변수
     const [checkDuplicateId, setCheckDuplicateId] = useState("");
-    const signUpInfo = useSignUpStore((state) => state.signUpInfo);
+    const memberInfo = useMemberStore((state) => state.memberInfo);
 
     // 회원가입 버튼 클릭시
     const handleJoin = () => {
         if (checkDuplicateId) {
-            registerAPI(signUpInfo).then(() => navigate("/"));
+            registerAPI(memberInfo).then(() => navigate("/"));
         }
     }
 
     // 중복 확인 버튼 클릭시
     const handleCheckDuplicate = () => {
-        checkMemberIdAPI(signUpInfo.id).then(res => setCheckDuplicateId(res.data));
+        checkMemberIdAPI(memberInfo.id).then(res => setCheckDuplicateId(res.data));
     }
 
     return (

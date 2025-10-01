@@ -1,19 +1,21 @@
-import {create} from "zustand/react";
+import {create} from "zustand"
 
-const useMemberStore = create(set => ({
-    member: {
-        id: ""
+
+const useMemberStore = create((set) => ({
+    memberInfo: {
+        id: "",
+        pw: "",
+        name: "",
+        phone: "",
+        email: "",
+        postcode: "",
+        address1: "",
+        address2: "",
     },
-    login: (info) => {
-        if (info.id !== "") {
-            sessionStorage.setItem("loginId", info.id);
-        }
-        set({member: info});
-    },
-    logout: () => {
-        sessionStorage.removeItem("loginId");
-        set({member: {id: ""}});
-    },
+    setInfo: (e) => set((state) => ({
+        memberInfo: {...state.memberInfo, ...e}
+    })),
+
 }));
 
 export default useMemberStore;

@@ -1,8 +1,8 @@
-import useSignUpStore from "../../../stores/signUpStore";
+import useMemberStore from "../../../stores/memberStore";
 
 export default function SignUpInputForm({type="text", placeholder, name, ...props}) {
-    const signUpInfo = useSignUpStore((state) => state.signUpInfo);
-    const setInfo = useSignUpStore((state) => state.setInfo);
+    const signUpInfo = useMemberStore((state) => state.memberInfo);
+    const setInfo = useMemberStore((state) => state.setInfo);
 
     return (
         <input

@@ -1,12 +1,12 @@
 import OpenDaumPostCode from "../../../commons/components/OpenDaumPostCode";
 import {useState} from "react";
-import useSignUpStore from "../../../stores/signUpStore";
+import useMemberStore from "../../../stores/memberStore";
 
-export default function GetPostCode({form, setForm}) {
+export default function GetPostCode() {
     const [showPost, setShowPost] = useState(false);
 
-    const signUpInfo = useSignUpStore((state) => state.signUpInfo);
-    const setInfo = useSignUpStore((state) => state.setInfo);
+    const memberInfo = useMemberStore((state) => state.memberInfo);
+    const setInfo = useMemberStore((state) => state.setInfo);
 
     const handleComplete = (data) => {
         setInfo( {
@@ -23,7 +23,7 @@ export default function GetPostCode({form, setForm}) {
                 placeholder="우편번호"
                 name={"postcode"}
                 readOnly={true}
-                value={signUpInfo.postcode}
+                value={memberInfo.postcode}
             />
             <button onClick={() => setShowPost(true)}>찾기</button>
             {showPost &&
@@ -35,7 +35,7 @@ export default function GetPostCode({form, setForm}) {
                 placeholder="도로명 주소"
                 name={"address1"}
                 readOnly={true}
-                value={signUpInfo.address1}
+                value={memberInfo.address1}
             />
             <br/>
         </>

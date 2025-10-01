@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {loginAPI} from "../api/authAPI";
 import {useNavigate} from "react-router-dom";
-import useMemberStore from "../../../stores/memberStore";
+import useMemberStore from "../../../stores/authStore";
 
 const LoginPage = () => {
     const navigate = useNavigate();
