@@ -5,6 +5,11 @@ export function meAPI() {
     return api(apiRoutes.member.me);
 }
 
-export function putAPI(memberId) {
-    return api(apiRoutes.member.put(memberId));
+export function putAPI() {
+    return api(apiRoutes.member.put);
+    // {url: ..., method: ..., data: memberInfo}
+}
+
+export function deleteAPI() {
+    return api(apiRoutes.member.delete);
 }

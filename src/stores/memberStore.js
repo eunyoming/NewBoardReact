@@ -15,7 +15,6 @@ const useMemberStore = create((set) => ({
     setInfo: (e) => set((state) => ({
         memberInfo: {...state.memberInfo, ...e}
     })),
-
 }));
 
 export default useMemberStore;

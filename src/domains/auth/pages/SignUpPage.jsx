@@ -15,6 +15,7 @@ const SignUpPage = () => {
     // 회원가입 버튼 클릭시
     const handleJoin = () => {
         if (checkDuplicateId) {
+            console.log(memberInfo);
             registerAPI(memberInfo).then(() => navigate("/"));
         }
     }

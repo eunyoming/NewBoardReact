@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {meAPI} from "../api/mypageAPI";
+import {deleteAPI, meAPI, putAPI} from "../api/mypageAPI";
 import styles from "./MyPage.module.css"
 import ModifyPostCode from "../components/ModifyPostCode";
 import useMemberStore from "../../../stores/memberStore";
@@ -8,6 +8,8 @@ import MyPageInputForm from "../components/MyPageInputForm";
 const Mypage = () => {
     // 로그인한 사용자 정보 채워넣기
     const setMemberInfo = useMemberStore(state => state.setInfo);
+    // 채워넣은 정보 가져오기
+    const memberInfo = useMemberStore(state => state.memberInfo);
     // input css 기본 설정 상태 변수
     const [customInput, setCustomInput] = useState(true);
     // input title 상태 변수
@@ -17,18 +19,13 @@ const Mypage = () => {
         {name: "phone", title: "연락처", customFlag: true},
         {name: "email", title: "이메일", customFlag: true},
     ];
-    // input 입력 값 저장할 상태 변수
-    const [modifyMember, setModifyMember] = useState({
-        phone: "",
-        email: "",
-        postcode: "",
-        address1: "",
-        address2: ""
-    });
 
-    useEffect(() => meAPI().then(resp => {
-        setMemberInfo(resp.data);
-    }), [setMemberInfo]);
+    useEffect(() => {
+
+        meAPI().then(resp => {
+            setMemberInfo(resp.data)
+        }
+    )}, []);
 
 
     return (
@@ -47,15 +44,29 @@ const Mypage = () => {
                     <button onClick={() => setCustomInput(!customInput)}>수정</button> :
                     <>
                         <button onClick={() => {
+                            putAPI();
                             setCustomInput(!customInput)
                         }}>수정완료
                         </button>
-                        <button onClick={() =>
+                        <button onClick={() => {
+                            meAPI().then(resp => {
+                                setMemberInfo(resp.data);
+                            });
                             setCustomInput(!customInput)
-                        }>수정취소
+                        }}>수정취소
                         </button>
                     </>
                 }
+                <button onClick={() => {
+                    const result = window.confirm("정말로 회원 탈퇴 하시겠습니까?");
+                    if(result) {
+                    deleteAPI().then(resp => {
+                            alert("회원 탈퇴가 정상적으로 처리되었습니다.");
+                    }).catch(() =>
+                        alert("회원 탈퇴가 정상적으로 처리되지 않았습니다.")
+                    );
+                }
+                }}>회원 탈퇴</button>
             </div>
         </div>
     );
