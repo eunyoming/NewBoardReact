@@ -117,7 +117,37 @@ const apiRoutes = {
                 url: `/board?title=${searchQuery}`,
                 method: "GET"
             }),
-        }
+        },
+        reply: {
+            /**
+             * 댓글 등록 API<br>
+             * POST /api/reply<br>
+             * body: {ReplyDTO}
+             */
+            insert: {
+                url: `/reply`,
+                method: "POST"
+            },
+
+            /**
+             * 댓글 수정 API<br>
+             * POST /api/reply<br>
+             * body: {ReplyDTO}
+             */
+            put: {
+                url: `/reply`,
+                method: "PUT"
+            },
+
+            /**
+             * 댓글 삭제 API<br>
+             * POST /api/reply/{id}<br>
+             */
+            delete: (targetId) => ({
+                url: `/reply/${targetId}`,
+                method: "DELETE"
+            }),
+        },
     }
 ;
 
